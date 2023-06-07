@@ -34,13 +34,10 @@ function findElement(arr, value) {
  *    2 => [ 1, 3 ]
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
-function generateOdds(/* len */) {
-  throw new Error('Not implemented');
-  // const result = [];
-  // for (let index = 1; index < len; index += 2) {
-  //   result.push(index);
-  // }
-  // return result;
+function generateOdds(len) {
+  return Array(len)
+    .fill()
+    .map((_, index) => 2 * index + 1);
 }
 
 /**
@@ -72,6 +69,7 @@ function doubleArray(arr) {
  *    [] => []
  */
 function getArrayOfPositives(/* arr */) {
+  // return arr.splice(index, item, 1);
   throw new Error('Not implemented');
 }
 
@@ -450,8 +448,11 @@ function getIdentityMatrix(/* n */) {
  *     0, 100 => [ 0, 1, 2, ..., 100 ]
  *     3, 3   => [ 3 ]
  */
-function getIntervalArray(/* start, end */) {
-  throw new Error('Not implemented');
+
+function getIntervalArray(start, end) {
+  return Array(end - start + 1)
+    .fill()
+    .map((_, index) => start + index);
 }
 
 /**
