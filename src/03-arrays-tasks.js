@@ -329,8 +329,13 @@ function sortDigitNamesByNumericOrder(/* arr */) {
  *   [ -1, 1, -1, 1 ]      => 0
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
-function getItemsSum(/* arr */) {
-  throw new Error('Not implemented');
+function getItemsSum(arr) {
+  const initialValue = 0;
+  const sumWithInitial = arr.reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+    initialValue,
+  );
+  return sumWithInitial;
 }
 
 /**
@@ -345,8 +350,14 @@ function getItemsSum(/* arr */) {
  *  [ -1, 'false', null, 0 ] => 2
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
-function getFalsyValuesCount(/* arr */) {
-  throw new Error('Not implemented');
+
+function getFalsyValuesCount(arr) {
+  const falsyValuesCount = arr.reduce(
+    (count, value) => count + (!value ? 1 : 0),
+    0,
+  );
+
+  return falsyValuesCount;
 }
 
 /**
@@ -378,10 +389,15 @@ function findAllOccurrences(/* arr, item */) {
  *    [1, 2, 3, 4, 5]                   => '1,2,3,4,5'
  *    ['rock', 'paper', 'scissors']     => 'rock,paper,scissors'
  */
-function toStringList(/* arr */) {
-  throw new Error('Not implemented');
-}
 
+function toStringList(arr) {
+  const result = arr.reduce((total, amount, index) => {
+    const isLastElement = index === arr.length - 1;
+    return total + amount + (isLastElement ? '' : ',');
+  }, '');
+
+  return result;
+}
 /**
  * Sorts the specified array by country name first and city name
  * (if countries are equal) in ascending order.
